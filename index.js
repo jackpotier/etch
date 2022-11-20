@@ -19,7 +19,7 @@ function square_generation(){
         for (let column=1; column<=subSquares; column++){ 
             let etchSquare = document.createElement('div');
             etchSquare.classList.add("etchSquare");
-            etchSquare.setAttribute('id',"Column "+column);
+            etchSquare.setAttribute('id',("("+column+","+row+")"));
             etchSquare.style.width = subDimension+"px";
             etchSquare.style.height = subDimension+"px";
             etch_row.appendChild(etchSquare);
@@ -27,7 +27,7 @@ function square_generation(){
     }
 }
 
-//Set the default etch subSqaure value onto the page (with 16 squares per page)
+//Set the default etch subSquare value onto the page (with 16 squares per page)
 square_generation(subSquares);
 
 //Remove the squares in order to change subSquare value
@@ -38,9 +38,9 @@ function square_removal(){
       }
 }
 
-//Change the number of sqaures in the etch container
+//Change the number of squares in the etch container
 document.getElementById("grid_size").addEventListener('click', changeGrid);
-function changeGrid(etch_box){
+function changeGrid(){
     subSquares = prompt("Number of squares per row between 1 and 100");
     subSquares = Number(subSquares)
     if (subSquares > 100 || subSquares < 1){
@@ -48,7 +48,8 @@ function changeGrid(etch_box){
     }
     else {
         square_removal();
-        console.log("Squares in etch container: "+subSquares);
         square_generation(subSquares);  
     }
 }
+
+
