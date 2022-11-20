@@ -4,6 +4,10 @@
 
 body{
     background-color: #3aafa9;
+    margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
 }
 
 h1{
@@ -18,11 +22,18 @@ header{
     margin-left: 100px;
     margin-right: 100px;
     align-items: center;
+    height: 80px;
+}
+
+.button_store {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 button {
     background-color: #17252a;
-    border: none;
+    border-color: #17252a;
     color: #feffff;
     border-radius: 5px;
     font-size: 14px;
@@ -30,7 +41,17 @@ button {
     padding: 0px 0px;
     width: 120px;
     height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+
+button:hover {
+    background-color: #feffff;
+    border-color: #17252a;
+    border-width: 1px;
+    transition-duration: 0.5s;
+    color: #17252a;
+  }
 
 #container{
     display: flex;
@@ -38,8 +59,9 @@ button {
     align-items: center;
     justify-content: center;
     height: 510px;
-    margin-top: 50px;
+    margin-top: 35px;
     width: auto;
+    margin-bottom:65px;
 }
 
 #etch_box{
@@ -66,3 +88,12 @@ button {
     border-width: 1px;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    background-color: #17252a;
+    color:#feffff;
+    justify-content: center;
+    align-items: center;
+}
