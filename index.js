@@ -14,7 +14,6 @@ function square_generation(){
         etch_row.style.width = "500px";
         etch_row.style.height = subDimension+"px";
         etch_box.appendChild(etch_row);
-        etch_box_content = Array.from(etch_box);
 
         //Generate columns
         for (let column=1; column<=subSquares; column++){ 
@@ -24,7 +23,6 @@ function square_generation(){
             etchSquare.style.width = subDimension+"px";
             etchSquare.style.height = subDimension+"px";
             etch_row.appendChild(etchSquare);
-            etch_row_content = Array.from(etch_row);
         }
     }
 }
@@ -33,21 +31,23 @@ function square_generation(){
 square_generation(subSquares);
 
 //Remove the squares in order to change subSquare value
-function square_remove(){
-    for (let box=1; box<=subSquares; box++){
-    }
+function square_removal(){
+    const myNode = document.getElementById("etch_box");
+    while (myNode.lastElementChild) {
+        myNode.removeChild(myNode.lastElementChild);
+      }
 }
 
 //Change the number of sqaures in the etch container
 document.getElementById("grid_size").addEventListener('click', changeGrid);
-function changeGrid(){
+function changeGrid(etch_box){
     subSquares = prompt("Number of squares per row between 1 and 100");
     subSquares = Number(subSquares)
     if (subSquares > 100 || subSquares < 1){
         alert("Please enter a number in the given range of 1 to 100");
     }
     else {
-        square_remove(subSquares);
+        square_removal();
         console.log("Squares in etch container: "+subSquares);
         square_generation(subSquares);  
     }
