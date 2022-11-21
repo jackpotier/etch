@@ -72,6 +72,16 @@ function square_removal(){
       }
 }
 
+//Detect a 'mouseover' event over etch_box
+function colorSquares(){
+    let etchMouseover = document.querySelectorAll(".etchSquare");
+    etchMouseover.forEach(function(colorChange) {
+        colorChange.addEventListener("mouseover", function() {
+            colorChange.style.backgroundColor = color_schemes[schemePosition];
+        });
+    });
+}
+
 //Change the number of squares in the etch container
 document.getElementById("grid_size").addEventListener('click', changeGrid);
 function changeGrid(){
@@ -85,6 +95,7 @@ function changeGrid(){
         text_removal();
         square_generation(subSquares);
         display_variables();
+        colorSquares();
     }
 }
 
@@ -101,12 +112,6 @@ function changeScheme(){
     text_removal();
     color_schemes[schemePosition];
     display_variables();
+    colorSquares();
 }
 
-//Detect a 'mouseover' event over etch_box
-let etchMouseover = document.querySelectorAll(".etchSquare");
-etchMouseover.forEach(function(colorChange) {
-    colorChange.addEventListener("mouseover", function() {
-          colorChange.style.backgroundColor = color_schemes[schemePosition];
-    });
-});
