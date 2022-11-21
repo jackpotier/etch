@@ -1,7 +1,8 @@
 //Set the default values
 let subSquares = 16;
 let black = '#000000';
-let rainbow = '#ff0000';
+let rainbow = Math.floor(Math.random()*16777215).toString(16);;
+rainbow = '#'+rainbow;
 let color_schemes = [black,rainbow];
 let schemePosition = 0;
 
@@ -52,9 +53,10 @@ function square_generation(){
 
 //Set the default etch subSquare value onto the page (with 16 squares per page)
 square_generation(subSquares);
-
 //Set the default text beside the etch_box
 display_variables()
+//Set the default color squares function
+colorSquares();
 
 //Remove the text in order to redisplay new values
 function text_removal(){
@@ -77,6 +79,9 @@ function colorSquares(){
     let etchMouseover = document.querySelectorAll(".etchSquare");
     etchMouseover.forEach(function(colorChange) {
         colorChange.addEventListener("mouseover", function() {
+            let rainbow = Math.floor(Math.random()*16777215).toString(16);;
+            rainbow = '#'+rainbow;
+            let color_schemes = [black,rainbow];
             colorChange.style.backgroundColor = color_schemes[schemePosition];
         });
     });
