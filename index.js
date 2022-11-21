@@ -1,6 +1,6 @@
 //Set the default values
 let subSquares = 16;
-let black = '#17252a';
+let black = '#000000';
 let rainbow = '#ff0000';
 let color_schemes = [black,rainbow];
 let schemePosition = 0;
@@ -33,6 +33,7 @@ function square_generation(){
         etch_row.style.width = "500px";
         etch_row.style.height = subDimension+"px";
         etch_row.style.borderColor = "#17252a";
+        etch_row.style.backgroundColor = "#ffffff";
         etch_box.appendChild(etch_row);
 
         //Generate columns
@@ -43,6 +44,7 @@ function square_generation(){
             etchSquare.style.width = subDimension+"px";
             etchSquare.style.height = subDimension+"px";
             etchSquare.style.borderColor = "#17252a";
+            etchSquare.style.backgroundColor = "#ffffff";
             etch_row.appendChild(etchSquare);
         }
     }
@@ -74,9 +76,6 @@ function square_removal(){
 document.getElementById("grid_size").addEventListener('click', changeGrid);
 function changeGrid(){
     subSquares = prompt("Number of squares per row between 1 and 100");
-    if (subSquares = NaN){
-        
-    }
     subSquares = Number(subSquares);
     if (subSquares > 100 || subSquares < 1){
         alert("Please enter a number in the given range of 1 to 100");
@@ -105,6 +104,9 @@ function changeScheme(){
 }
 
 //Detect a 'mouseover' event over etch_box
-let etchMouseover = document.getElementById("etch_box").addEventListener('mouseover', squareSearch);
-function squareSearch(){
-}
+let etchMouseover = document.querySelectorAll(".etchSquare");
+etchMouseover.forEach(function(colorChange) {
+    colorChange.addEventListener("mouseover", function() {
+          colorChange.style.backgroundColor = color_schemes[schemePosition];
+    });
+});
