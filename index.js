@@ -115,8 +115,18 @@ function changeScheme(){
         schemePosition+=1;
     }
     text_removal();
-    color_schemes[schemePosition];
     display_variables();
     colorSquares();
 }
 
+//Reset button
+document.querySelector("#reset_button").addEventListener('click', resetEtch);
+function resetEtch(){
+    subSquares = 16;
+    schemePosition = 0;
+    square_removal();
+    text_removal();
+    square_generation(subSquares);
+    display_variables();
+    colorSquares();
+}
