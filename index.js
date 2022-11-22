@@ -1,9 +1,10 @@
 //Set the default values
 let subSquares = 16;
-let black = '#000000';
 let rainbow = Math.floor(Math.random()*16777215).toString(16);;
+black = '#000000';
 rainbow = '#'+rainbow;
 let color_schemes = [black,rainbow];
+let name_schemes = ['black','rainbow'];
 let schemePosition = 0;
 
 //Display the colour palette and grid size next to the etch_box
@@ -16,7 +17,7 @@ function display_variables(){
     let showColor = document.createElement('div');
     showColor.classList.add('displayText');
     showColor.setAttribute('id','showColor')
-    showColor.textContent = "Color changer scheme is set at "+color_schemes[schemePosition];
+    showColor.textContent = "Color changer scheme is set as "+name_schemes[schemePosition];
     variable_store.appendChild(showSize);
     variable_store.appendChild(showColor);
 }
