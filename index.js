@@ -17,7 +17,7 @@ function display_variables(){
     let showColor = document.createElement('div');
     showColor.classList.add('displayText');
     showColor.setAttribute('id','showColor')
-    showColor.textContent = "Color changer scheme is set as "+name_schemes[schemePosition];
+    showColor.textContent = "Color scheme is set as "+name_schemes[schemePosition];
     variable_store.appendChild(showSize);
     variable_store.appendChild(showColor);
 }
